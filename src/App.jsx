@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import Header from './Components/Header'
 import Mainsec from './Components/Mainsec'
+import Loginpage from './Components/Loginpage'
 import './App.css'
 
 function App() {
  const [show, setshow] = useState(false);
+ const [showbtn, setshowbtn] = useState(false);
 
   const handleHeaderClick = () => {
    if(show==true){
@@ -14,6 +16,14 @@ setshow(false)
     setshow(true)
    }
   };
+  const buttonHeaderClick = () => {
+    if(showbtn==true){
+ setshowbtn(false)
+    }
+    else{
+     setshowbtn(true)
+    }
+   };
 
   return (
     <>
@@ -22,11 +32,15 @@ setshow(false)
             backgroundImage:
               "url('https://i.postimg.cc/c4Z8nLhq/flat-lay-sneakers-with-towel-weights.jpg')",
           }}>
- <Header handleHeaderClick={handleHeaderClick} />
-      
-     { show && (<Mainsec></Mainsec>)
+ <Header  buttonHeaderClick={buttonHeaderClick} />
+ {/* <Loginpage></Loginpage> */}
+     {/* { show && (<Mainsec></Mainsec>)
      
-     }
+     } */}
+     { showbtn && (<Loginpage></Loginpage>)
+     
+    }
+
      </div>
     </>
   )
